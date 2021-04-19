@@ -1,5 +1,5 @@
 package View;
-
+/** Local onde o usuario comprar seus produtos**/
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,9 +17,7 @@ public class telaLocal {
 
 	private JFrame frmLocal;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,16 +31,12 @@ public class telaLocal {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public telaLocal() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		frmLocal = new JFrame();
 		frmLocal.getContentPane().setBackground(Color.LIGHT_GRAY);
@@ -50,6 +44,8 @@ public class telaLocal {
 		frmLocal.setBounds(100, 100, 450, 300);
 		frmLocal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLocal.getContentPane().setLayout(null);
+		
+/** Botões dos posiveis locais de comprar para o usuario **/
 		
 		JLabel lblNewLabel = new JLabel("Escolha o local dos produtos :");
 		lblNewLabel.setForeground(Color.BLUE);

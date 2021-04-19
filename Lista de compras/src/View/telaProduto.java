@@ -1,4 +1,5 @@
 package View;
+/** O usuario vai inserir o nome, quantidade e valor dos produto**/
 
 import java.awt.EventQueue;
 
@@ -15,9 +16,7 @@ public class telaProduto {
 	private JTextField textField_1;
 	private JTextField textField_2;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -31,16 +30,12 @@ public class telaProduto {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public telaProduto() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		frmProduto = new JFrame();
 		frmProduto.setTitle("Produto");
@@ -48,6 +43,8 @@ public class telaProduto {
 		frmProduto.setBounds(100, 100, 450, 300);
 		frmProduto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmProduto.getContentPane().setLayout(null);
+		
+/** Aqui o usuario informara o nome do prduto para se acrescentado na lista **/
 		
 		JLabel lblNewLabel = new JLabel("Insira o nome do produto :");
 		lblNewLabel.setForeground(Color.BLUE);

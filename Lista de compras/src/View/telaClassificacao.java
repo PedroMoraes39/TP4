@@ -1,4 +1,7 @@
 package View;
+
+/** Nesta parte e feito a classificação do produto**/
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,9 +17,7 @@ public class telaClassificacao {
 
 	private JFrame frmClassificaoDoProduto;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -30,16 +31,10 @@ public class telaClassificacao {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public telaClassificacao() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmClassificaoDoProduto = new JFrame();
 		frmClassificaoDoProduto.setTitle("Classifica\u00E7\u00E3o do produto");
@@ -53,6 +48,8 @@ public class telaClassificacao {
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 16));
 		lblNewLabel.setBounds(10, 11, 319, 49);
 		frmClassificaoDoProduto.getContentPane().add(lblNewLabel);
+		
+/** botões de escolha para o usuario separar seus produtos**/	
 		
 		JList list = new JList();
 		list.setBackground(Color.LIGHT_GRAY);

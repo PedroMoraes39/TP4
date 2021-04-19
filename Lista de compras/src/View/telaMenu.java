@@ -1,5 +1,5 @@
 package View;
-
+/** Nesta parte sera iniciado o meno do programa **/
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -33,9 +33,6 @@ public class telaMenu {
             initialize();
         }
 
-        /**
-         * Initialize the contents of the frame.
-         */
 private void initialize() {
             frmListaDeCompras = new JFrame();
             frmListaDeCompras.getContentPane().setBackground(Color.DARK_GRAY);
@@ -44,6 +41,7 @@ private void initialize() {
             frmListaDeCompras.setBounds(100, 100, 450, 300);
             frmListaDeCompras.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frmListaDeCompras.getContentPane().setLayout(null);
+/** Botão para iniciar uma nova lista **/
 JButton btnNewButton = new JButton("Criar Lista");
             btnNewButton.setToolTipText("Criar uma lista de compras nova");
             btnNewButton.setFont(new Font("Arial", Font.BOLD, 13));
@@ -56,7 +54,7 @@ JButton btnNewButton = new JButton("Criar Lista");
             });
             btnNewButton.setBounds(150, 88, 121, 35);
             frmListaDeCompras.getContentPane().add(btnNewButton);
-
+/** Botão para iniciar listas ja criadas**/
             JButton btnNewButton_1 = new JButton("Listas criadas");
             btnNewButton_1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
