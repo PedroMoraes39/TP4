@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
-public class teste {
+public class telaMenu {
 
         private JFrame frmListaDeCompras;
 
@@ -19,7 +19,7 @@ public class teste {
             EventQueue.invokeLater(new Runnable() {
                 public void run() {
                     try {
-                        teste window = new teste();
+                        telaMenu window = new telaMenu();
                         window.frmListaDeCompras.setVisible(true);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -29,7 +29,7 @@ public class teste {
         }
 
 
-        public teste() {
+        public telaMenu() {
             initialize();
         }
 
@@ -58,6 +58,11 @@ JButton btnNewButton = new JButton("Criar Lista");
             frmListaDeCompras.getContentPane().add(btnNewButton);
 
             JButton btnNewButton_1 = new JButton("Listas criadas");
+            btnNewButton_1.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null, "Ainda Não existe listas criadas");
+                }
+            });
             btnNewButton_1.setToolTipText("Acessar uma lista de compras j\u00E1 criada");
             btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 13));
             btnNewButton_1.setBounds(150, 149, 121, 35);
