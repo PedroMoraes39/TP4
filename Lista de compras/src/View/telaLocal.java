@@ -1,80 +1,55 @@
 package View;
 /** Local onde o usuario comprar seus produtos**/
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.ListSelectionModel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-public class telaLocal {
-
-	private JFrame frmLocal;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import controle.*;
+import View.*;
 
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					telaLocal window = new telaLocal();
-					window.frmLocal.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-
+public class telaLocal implements ActionListener {
+	private static JFrame local = new JFrame("Lista de compras");
+	private static JLabel titulo = new JLabel("Escolha um Local:");
+	private static JButton mercado = new JButton("Mercado");
+	private static JButton açougue = new JButton("Açougue");
+	private static JButton feira = new JButton("Feira");
+	
 	public telaLocal() {
-		initialize();
+		titulo.setFont(new Font("Arial", Font.BOLD, 20));
+		titulo.setBounds(105, 10, 190, 30);
+		feira.setBounds(140, 100, 100, 30);
+		açougue.setBounds(140, 150, 100, 30);
+		mercado.setBounds(140, 50, 100, 30);
+		
+		local.setLayout(null);
+		
+		local.add(titulo);
+		local.add(mercado);
+		local.add(feira);
+		local.add(açougue);
+		
+		local.setSize(400, 250);
+		local.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		local.setVisible(true);
 	}
-
-
-	private void initialize() {
-		frmLocal = new JFrame();
-		frmLocal.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frmLocal.setTitle("Local");
-		frmLocal.setBounds(100, 100, 450, 300);
-		frmLocal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmLocal.getContentPane().setLayout(null);
+	
+	public static void main(String[] args) {
+		telaLocal local = new telaLocal();
 		
-/** Botões dos posiveis locais de comprar para o usuario **/
+		mercado.addActionListener(local);
+		açougue.addActionListener(local);
+		feira.addActionListener(local);
+	}
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
 		
-		JLabel lblNewLabel = new JLabel("Escolha o local dos produtos :");
-		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 16));
-		lblNewLabel.setBackground(new Color(240, 240, 240));
-		lblNewLabel.setBounds(10, 34, 314, 41);
-		frmLocal.getContentPane().add(lblNewLabel);
+		if(src == mercado)
+			new telaProduto();
 		
-		JButton btnNewButton = new JButton("Mercado");
-		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(173, 112, 125, 32);
-		frmLocal.getContentPane().add(btnNewButton);
+		if(src == açougue)
+			new telaProduto();
 		
-		JButton btnNewButton_1 = new JButton("A\u00E7ougue");
-		btnNewButton_1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1.setBounds(172, 150, 125, 41);
-		frmLocal.getContentPane().add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("Feira");
-		btnNewButton_2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-		btnNewButton_2.setBounds(173, 197, 124, 41);
-		frmLocal.getContentPane().add(btnNewButton_2);
+		if(src == feira)
+			new telaProduto();
 	}
 }
