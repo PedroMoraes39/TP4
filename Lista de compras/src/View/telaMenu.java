@@ -1,74 +1,46 @@
 package View;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import controle.*;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JButton;
-
-public class teste {
-
-        private JFrame frmListaDeCompras;
-
-        public static void main(String[] args) {
-            EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    try {
-                        teste window = new teste();
-                        window.frmListaDeCompras.setVisible(true);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-        }
-
-
-        public teste() {
-            initialize();
-        }
-
-        /**
-         * Initialize the contents of the frame.
-         */
-private void initialize() {
-            frmListaDeCompras = new JFrame();
-            frmListaDeCompras.getContentPane().setBackground(Color.DARK_GRAY);
-            frmListaDeCompras.setTitle("Lista De Compras");
-            frmListaDeCompras.getContentPane().setForeground(Color.PINK);
-            frmListaDeCompras.setBounds(100, 100, 450, 300);
-            frmListaDeCompras.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frmListaDeCompras.getContentPane().setLayout(null);
-JButton btnNewButton = new JButton("Criar Lista");
-            btnNewButton.setToolTipText("Criar uma lista de compras nova");
-            btnNewButton.setFont(new Font("Arial", Font.BOLD, 13));
-            btnNewButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades\n");
-
-
-                }
-            });
-            btnNewButton.setBounds(150, 88, 121, 35);
-            frmListaDeCompras.getContentPane().add(btnNewButton);
-
-            JButton btnNewButton_1 = new JButton("Listas criadas");
-            btnNewButton_1.setToolTipText("Acessar uma lista de compras j\u00E1 criada");
-            btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 13));
-            btnNewButton_1.setBounds(150, 149, 121, 35);
-            frmListaDeCompras.getContentPane().add(btnNewButton_1);
-
-            JLabel lblNewLabel = new JLabel("Menu Principal");
-            lblNewLabel.setForeground(Color.CYAN);
-            lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 16));
-            lblNewLabel.setBounds(140, 26, 143, 35);
-            frmListaDeCompras.getContentPane().add(lblNewLabel);
-        }
-
-
-        }
+public class telaMenu implements ActionListener {
+	
+	private static JFrame janela = new JFrame("Lista de compras");
+	private static JLabel titulo = new JLabel("Menu Principal");
+	private static JButton Nlista = new JButton("Nova Lista");
+	private static JButton Clista = new JButton("Listas Criadas");
+	
+	public telaMenu() {
+		titulo.setFont(new Font("Arial", Font.BOLD, 20));
+		titulo.setBounds(120, 10, 150, 30);
+		Clista.setBounds(140, 100, 100, 30);
+		Nlista.setBounds(140, 50, 100, 30);
+		
+		janela.setLayout(null);
+		
+		janela.add(titulo);
+		janela.add(Nlista);
+		janela.add(Clista);
+		
+		janela.setSize(400, 250);
+		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		janela.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		telaMenu menu = new telaMenu();
+		
+		Nlista.addActionListener(menu);
+		Clista.addActionListener(menu);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		
+		if(src == Nlista)
+			new telaLocal();
+			
+	}
+}
